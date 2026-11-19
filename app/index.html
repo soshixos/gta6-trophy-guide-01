@@ -3,23 +3,132 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Platinum — GTA 6 Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 GTA 6 trophies on PS5: official names, descriptions and grades, a roadmap to the platinum, and a cited guide for every trophy.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23221033'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%23ff9a3d'%3E%E2%98%85%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
+<script>window.__shotReady = false;</script>
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header id="top">
+  <div class="masthead">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; Offline guide &amp; tracker</p>
+    <h1>Leonida Platinum</h1>
+    <p class="subtitle">Every one of the 55 trophies, with its official name, description and grade, a guide in our own words with its sources, and a checklist that saves in your browser.</p>
+    <p class="facts"><strong>55</strong> trophies &middot; <strong>1</strong> Platinum &middot; <strong>2</strong> Gold &middot; <strong>6</strong> Silver &middot; <strong>46</strong> Bronze &middot; <strong>28</strong> hidden &middot; <strong>0</strong> online &middot; about <strong>200 hours</strong> to the Platinum &middot; difficulty <strong>4/10</strong></p>
+  </div>
+  <div id="progress" class="progress" aria-live="polite">
+    <div class="bigcount"><span id="earnedCount">0</span><span class="of"> / 55 earned</span></div>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="barWrap"><div id="barFill"></div></div>
+    <p id="gradeCounts" class="gradecounts">Platinum 0/1 &middot; Gold 0/2 &middot; Silver 0/6 &middot; Bronze 0/46</p>
+    <p id="kindCounts" class="kindcounts"></p>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<section id="warnings" class="warnings" aria-label="Warnings">
+  <div class="warn missable"><strong>1 potentially missable trophy:</strong> Positive Mental Attitude (#28) — do Lucia&rsquo;s balcony meditation in Chapter 1, before that chapter ends. Every other trophy can be earned after the story.</div>
+  <div class="warn"><strong>Cheats disable trophies</strong> (and saving) while active — keep them off on your trophy save. Cheats only unlock after the story anyway.</div>
+  <div class="warn"><strong>No mission replay, no New Game Plus.</strong> Keep a manual save at the start of every chapter and one before the final mission — 15 manual slots plus 1 autosave.</div>
+</section>
+
+<nav class="jumpnav" aria-label="Sections">
+  <a href="#controls">Checklist &amp; filters</a>
+  <a href="#list">All 55 trophies</a>
+  <a href="#roadmap">Platinum roadmap</a>
+  <a href="#about">Sources &amp; honesty notes</a>
+</nav>
+
+<section id="controls" class="controls" aria-label="Checklist controls">
+  <div class="control-row">
+    <label class="search">Search <input id="search" type="search" placeholder="Name, description or guide text…" autocomplete="off"></label>
+    <label>Grade
+      <select id="grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label>Kind
+      <select id="kind">
+        <option value="all">All kinds</option>
+        <option value="story">Story</option>
+        <option value="chapter">Chapter</option>
+        <option value="mission">Mission</option>
+        <option value="side">Side quests</option>
+        <option value="activity">Activities</option>
+        <option value="collectible">Collectibles</option>
+        <option value="robbery">Robberies</option>
+        <option value="exploration">Exploration</option>
+        <option value="money">Money</option>
+        <option value="combat">Combat</option>
+        <option value="misc">Misc</option>
+      </select>
+    </label>
+    <label>Progress
+      <select id="earnedFilter">
+        <option value="all">Earned + unearned</option>
+        <option value="earned">Earned only</option>
+        <option value="unearned">Unearned only</option>
+      </select>
+    </label>
+    <label class="check"><input id="missableOnly" type="checkbox"> Missable only</label>
+    <label class="check spoiler"><input id="spoilers" type="checkbox" checked> Hide story spoilers</label>
+  </div>
+  <div class="control-row">
+    <button id="export" type="button">Export progress (JSON)</button>
+    <label class="import">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+    <button id="reset" type="button">Reset progress</button>
+    <span id="status" class="status" aria-live="polite"></span>
+    <span id="showing" class="showing"></span>
+  </div>
+</section>
+
+<main>
+  <section id="list" class="list" aria-label="Trophy checklist"></section>
+  <p id="empty" class="empty" hidden>No trophies match these filters. Clear the search or widen a filter.</p>
+</main>
+
+<section id="roadmap" class="roadmap" aria-label="Platinum roadmap">
+  <h2>Roadmap to the Platinum</h2>
+  <p class="roadmap-intro">One playthrough is enough. Play the story first and let the side content come to you; the checklist only opens after the credits, but everything you do earlier already counts toward it. Sources: PowerPyx trophy guide &amp; roadmap, OutputLag trophy list.</p>
+  <ol class="phases">
+    <li>
+      <h3>Phase 1 — Story first <span class="phase-meta">Chapters 1&ndash;5 &middot; 60&ndash;80 hours</span></h3>
+      <p>Finish the story. That earns the 12 hidden chapter and mission trophies, including the gold for the final mission. Do optional missions as they appear — 100 of them count toward 100% completion — and scan vehicles and study animals as you go. <strong>Before Chapter 1 ends, do Lucia&rsquo;s balcony meditation</strong> (see #28). Keep a manual save at the start of every chapter and one before the final mission.</p>
+      <p class="phase-trophies">Earns: #2&ndash;#13</p>
+    </li>
+    <li>
+      <h3>Phase 2 — Side strands <span class="phase-meta">Strangers, Andy, Kenton, Billy, Randy, Tyrone, Bret</span></h3>
+      <p>Finish the character finales — Andy (Lucia-only), Kenton (7 shipwrecks), Billy, Randy (16 sports cars), Tyrone (Jason-only), Bret (Jason-only hunting) — and 8 stranger strands. Kirk, Kyle, Yago and Pilot Pete are confirmed to count toward Strangers &amp; Freaks; Andy, Billy and Tyrone have their own trophies and do not count. Yago&rsquo;s Race Against Yago in Chapter 3 is time-sensitive, so save first and race when it appears.</p>
+      <p class="phase-trophies">Earns: #22&ndash;#27, #29, #25</p>
+    </li>
+    <li>
+      <h3>Phase 3 — Activities, collectibles &amp; robberies <span class="phase-meta">Unlocks in Chapters 2&ndash;4</span></h3>
+      <p>Gold all 42 Shooting Range challenges, win a Top Fun drone race at all 14 locations, win 20 different races, finish an arcade game, beat Cal at fishing, meditate at all 18 spots. Collect: 3 card sets, WAiNK scans at 100 spots, 100 vehicles. Rob: a jewelry store unseen (Snap Gun, Chapter 3), 5 bank vaults (Chapter 4), an armored truck, and one illegal operation per gang (9 gangs, 39 operations).</p>
+      <p class="phase-trophies">Earns: #15&ndash;#21, #28, #30&ndash;#32, #35, #39&ndash;#41, #43, #46</p>
+    </li>
+    <li>
+      <h3>Phase 4 — The grinds <span class="phase-meta">Free-roam after the story</span></h3>
+      <p>Everything left is countable, so grind it after the credits. 250 stunts (300 for 100%), 50 challenges (70 for 100%), 500 actions that change your Criminal Profile, $250,000 of marked bills laundered, $100,000 spent in shops, all 8 garages, 10 vehicles registered. Open the 100% checklist under Progress &gt; Stats &gt; 100% Completion and work it down — it is forgiving, about 60% true completion.</p>
+      <p class="phase-trophies">Earns: #14, #15, #32, #48, #52&ndash;#55 &middot; plus the cryptic five (#44, #45, #49&ndash;#51) once their methods are confirmed</p>
+    </li>
+    <li>
+      <h3>Phase 5 — Platinum <span class="phase-meta">Vice Got a Price!</span></h3>
+      <p>When the other 54 are done, the Platinum pops automatically. There is no extra task, no difficulty trophy and no online trophy standing between you and it.</p>
+      <p class="phase-trophies">Earns: #1</p>
+    </li>
+  </ol>
+</section>
+
+
+<footer id="about">
+  <h2>Sources &amp; honesty notes</h2>
+  <p>Official names, descriptions and grades are as PlayStation publishes them, cross-checked 19 November 2026 against the lists on <a href="https://www.planetgta6.com/en/gta-6-trophies/">planetgta6.com</a> (taken from Exophase, cross-checked with PSNProfiles and TrueAchievements), <a href="https://outputlag.com/guides/gta-6-trophy-list/">OutputLag</a> and <a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/">PowerPyx</a> — all three agree on every name, description and grade. Every guide above is written in our own words for this entry and names its sources beside it; nothing is copied from another guide. Where a method is still unconfirmed at launch (#44, #45, #49, #50, #51), the guide says so instead of inventing one. One reported count could not be verified (the number of regions for #42) and is not asserted. The game launched 19 November 2026, so launch-week guides are the source of record and this page will age — re-check the cited guides before trusting a single detail.</p>
+  <p>No Rockstar logo, artwork or game screenshot is used here; the look is our own. This guide works fully offline: it loads only its own files and makes no network request. Progress is stored only in your browser (localStorage) and never leaves it except when you export it yourself.</p>
+</footer>
+
 <script type="module" src="app.js"></script>
 </body>
 </html>
